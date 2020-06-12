@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="31880734-e3c1-4bf0-a462-8cff21e937a0" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:56704/ExecutorService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ExecutorService.xsd" MetadataType="Schema" ID="111fbdd3-ead2-45b6-a81d-5f4d17d04b4c" SourceId="1" SourceUrl="http://localhost:56704/ExecutorService.svc?xsd=xsd0" />
+    <MetadataFile FileName="ExecutorService.wsdl" MetadataType="Wsdl" ID="deef762b-a95d-495d-9734-c87393a189d2" SourceId="1" SourceUrl="http://localhost:56704/ExecutorService.svc?wsdl" />
+    <MetadataFile FileName="ExecutorService.disco" MetadataType="Disco" ID="c91d1b39-d956-40ad-9b94-8f3af3dfa7b7" SourceId="1" SourceUrl="http://localhost:56704/ExecutorService.svc?disco" />
+    <MetadataFile FileName="ExecutorService1.xsd" MetadataType="Schema" ID="7567b8ab-ef5d-42dd-a95c-6ddcc5997009" SourceId="1" SourceUrl="http://localhost:56704/ExecutorService.svc?xsd=xsd5" />
+    <MetadataFile FileName="ExecutorService2.xsd" MetadataType="Schema" ID="9a2f7a0c-7016-4116-b864-0906067ecddb" SourceId="1" SourceUrl="http://localhost:56704/ExecutorService.svc?xsd=xsd4" />
+    <MetadataFile FileName="ExecutorService3.xsd" MetadataType="Schema" ID="da5a4f43-1404-4ad6-b67e-af6244037498" SourceId="1" SourceUrl="http://localhost:56704/ExecutorService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ExecutorService4.xsd" MetadataType="Schema" ID="5f5a65b6-bdca-4045-a8c2-dc9d45769301" SourceId="1" SourceUrl="http://localhost:56704/ExecutorService.svc?xsd=xsd3" />
+    <MetadataFile FileName="ExecutorService5.xsd" MetadataType="Schema" ID="6a8d9647-7dd3-4643-9c05-89c88398ee93" SourceId="1" SourceUrl="http://localhost:56704/ExecutorService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
