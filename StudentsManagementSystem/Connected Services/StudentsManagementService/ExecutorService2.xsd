@@ -1,23 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCF.Domain.StudentsManagement" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCF.Domain.StudentsManagement" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/WCF.Shared" />
-  <xs:complexType name="ArrayOfStudent">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Student" nillable="true" type="tns:Student" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfStudent" nillable="true" type="tns:ArrayOfStudent" />
-  <xs:complexType name="Student">
-    <xs:complexContent mixed="false">
-      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/WCF.Shared" base="q1:AggregateRoot">
-        <xs:sequence>
-          <xs:element minOccurs="0" name="BirthDate" type="xs:dateTime" />
-          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
-          <xs:element minOccurs="0" name="Gpi" type="xs:double" />
-          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
-        </xs:sequence>
-      </xs:extension>
-    </xs:complexContent>
-  </xs:complexType>
-  <xs:element name="Student" nillable="true" type="tns:Student" />
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/StudentsManagementService.Command.StudentCommands" />
+  <xs:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/StudentsManagementService.Queries.StudentQueries" />
+  <xs:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/WCF.Domain.StudentsManagement" />
+  <xs:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/StudentsManagementService.Query.StudentQueries" />
+  <xs:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/WCF.Domain.StudentsManagement.ReadModels" />
+  <xs:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/StudentsManagementService.Query.CourseQueries" />
+  <xs:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/WCF.Domain.CourseManagement" />
+  <xs:element name="CreateStudent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/StudentsManagementService.Command.StudentCommands" minOccurs="0" name="command" nillable="true" type="q1:CreateStudentCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateStudentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateStudentResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadStudent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/StudentsManagementService.Queries.StudentQueries" minOccurs="0" name="query" nillable="true" type="q2:StudentListQuery" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadStudentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCF.Domain.StudentsManagement" minOccurs="0" name="ReadStudentResult" nillable="true" type="q3:ArrayOfStudent" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStudent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/StudentsManagementService.Command.StudentCommands" minOccurs="0" name="command" nillable="true" type="q4:UpdateStudentCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateStudentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UpdateStudentResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStudent">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/StudentsManagementService.Command.StudentCommands" minOccurs="0" name="command" nillable="true" type="q5:DeleteStudentCommand" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteStudentResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteStudentResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StudentDetails">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/StudentsManagementService.Query.StudentQueries" minOccurs="0" name="query" nillable="true" type="q6:StudentDetailsQuery" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="StudentDetailsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WCF.Domain.StudentsManagement.ReadModels" minOccurs="0" name="StudentDetailsResult" nillable="true" type="q7:StudentDetailsDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadCourses">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/StudentsManagementService.Query.CourseQueries" minOccurs="0" name="query" nillable="true" type="q8:CourseListQuery" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReadCoursesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCF.Domain.CourseManagement" minOccurs="0" name="ReadCoursesResult" nillable="true" type="q9:ArrayOfCourse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCourseByStudentId">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCourseByStudentIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCF.Domain.CourseManagement" minOccurs="0" name="GetCourseByStudentIdResult" nillable="true" type="q10:ArrayOfCourse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

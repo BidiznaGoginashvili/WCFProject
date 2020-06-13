@@ -8,6 +8,11 @@
       <xsd:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/StudentsManagementService.Queries.StudentQueries" />
       <xsd:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/WCF.Domain.StudentsManagement" />
       <xsd:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/WCF.Shared" />
+      <xsd:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/WCF.Domain.CourseManagement" />
+      <xsd:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd7" namespace="http://schemas.datacontract.org/2004/07/WCF.Domain.LecturerManagement" />
+      <xsd:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd8" namespace="http://schemas.datacontract.org/2004/07/StudentsManagementService.Query.StudentQueries" />
+      <xsd:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd9" namespace="http://schemas.datacontract.org/2004/07/WCF.Domain.StudentsManagement.ReadModels" />
+      <xsd:import schemaLocation="http://localhost:56704/ExecutorService.svc?xsd=xsd10" namespace="http://schemas.datacontract.org/2004/07/StudentsManagementService.Query.CourseQueries" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IExecutorService_CreateStudent_InputMessage">
@@ -34,6 +39,24 @@
   <wsdl:message name="IExecutorService_DeleteStudent_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteStudentResponse" />
   </wsdl:message>
+  <wsdl:message name="IExecutorService_StudentDetails_InputMessage">
+    <wsdl:part name="parameters" element="tns:StudentDetails" />
+  </wsdl:message>
+  <wsdl:message name="IExecutorService_StudentDetails_OutputMessage">
+    <wsdl:part name="parameters" element="tns:StudentDetailsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExecutorService_ReadCourses_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReadCourses" />
+  </wsdl:message>
+  <wsdl:message name="IExecutorService_ReadCourses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReadCoursesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IExecutorService_GetCourseByStudentId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCourseByStudentId" />
+  </wsdl:message>
+  <wsdl:message name="IExecutorService_GetCourseByStudentId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCourseByStudentIdResponse" />
+  </wsdl:message>
   <wsdl:portType name="IExecutorService">
     <wsdl:operation name="CreateStudent">
       <wsdl:input wsaw:Action="http://tempuri.org/IExecutorService/CreateStudent" message="tns:IExecutorService_CreateStudent_InputMessage" />
@@ -50,6 +73,18 @@
     <wsdl:operation name="DeleteStudent">
       <wsdl:input wsaw:Action="http://tempuri.org/IExecutorService/DeleteStudent" message="tns:IExecutorService_DeleteStudent_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IExecutorService/DeleteStudentResponse" message="tns:IExecutorService_DeleteStudent_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="StudentDetails">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExecutorService/StudentDetails" message="tns:IExecutorService_StudentDetails_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExecutorService/StudentDetailsResponse" message="tns:IExecutorService_StudentDetails_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReadCourses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExecutorService/ReadCourses" message="tns:IExecutorService_ReadCourses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExecutorService/ReadCoursesResponse" message="tns:IExecutorService_ReadCourses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCourseByStudentId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IExecutorService/GetCourseByStudentId" message="tns:IExecutorService_GetCourseByStudentId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IExecutorService/GetCourseByStudentIdResponse" message="tns:IExecutorService_GetCourseByStudentId_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IExecutorService" type="tns:IExecutorService">
@@ -83,6 +118,33 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteStudent">
       <soap:operation soapAction="http://tempuri.org/IExecutorService/DeleteStudent" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="StudentDetails">
+      <soap:operation soapAction="http://tempuri.org/IExecutorService/StudentDetails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReadCourses">
+      <soap:operation soapAction="http://tempuri.org/IExecutorService/ReadCourses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCourseByStudentId">
+      <soap:operation soapAction="http://tempuri.org/IExecutorService/GetCourseByStudentId" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

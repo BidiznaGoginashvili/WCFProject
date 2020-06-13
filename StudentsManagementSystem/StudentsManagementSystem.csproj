@@ -127,10 +127,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\StudentsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Students\StudentModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -158,6 +159,9 @@
     <None Include="Connected Services\StudentsManagementService\ExecutorService1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\StudentsManagementService\ExecutorService10.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\StudentsManagementService\ExecutorService2.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -170,7 +174,25 @@
     <None Include="Connected Services\StudentsManagementService\ExecutorService5.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\StudentsManagementService\ExecutorService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\StudentsManagementService\ExecutorService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\StudentsManagementService\ExecutorService8.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\StudentsManagementService\ExecutorService9.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\StudentsManagementService\StudentsManagementSystem.StudentsManagementService.Course.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <Content Include="Connected Services\StudentsManagementService\StudentsManagementSystem.StudentsManagementService.Student.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\StudentsManagementService\StudentsManagementSystem.StudentsManagementService.StudentDetailsDto.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -195,15 +217,13 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Student\Index.cshtml" />
+    <Content Include="Views\Students\List.cshtml" />
+    <Content Include="Views\Students\Details.cshtml" />
+    <Content Include="Views\Students\Create.cshtml" />
+    <Content Include="Views\Students\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
-    <Folder Include="Views\Students\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

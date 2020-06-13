@@ -121,6 +121,9 @@ namespace StudentsManagementSystem.StudentsManagementService {
         private string FirstNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string LastNameField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -142,6 +145,19 @@ namespace StudentsManagementSystem.StudentsManagementService {
                 if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
                     this.FirstNameField = value;
                     this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -179,6 +195,9 @@ namespace StudentsManagementSystem.StudentsManagementService {
         private System.DateTime BirthDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StudentsManagementSystem.StudentsManagementService.Course[] CoursesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string FirstNameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -196,6 +215,19 @@ namespace StudentsManagementSystem.StudentsManagementService {
                 if ((this.BirthDateField.Equals(value) != true)) {
                     this.BirthDateField = value;
                     this.RaisePropertyChanged("BirthDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public StudentsManagementSystem.StudentsManagementService.Course[] Courses {
+            get {
+                return this.CoursesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CoursesField, value) != true)) {
+                    this.CoursesField = value;
+                    this.RaisePropertyChanged("Courses");
                 }
             }
         }
@@ -245,6 +277,9 @@ namespace StudentsManagementSystem.StudentsManagementService {
     [System.Runtime.Serialization.DataContractAttribute(Name="Entity", Namespace="http://schemas.datacontract.org/2004/07/WCF.Shared")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(StudentsManagementSystem.StudentsManagementService.AggregateRoot))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StudentsManagementSystem.StudentsManagementService.Course))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StudentsManagementSystem.StudentsManagementService.Lecturer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StudentsManagementSystem.StudentsManagementService.StudentDetailsDto))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(StudentsManagementSystem.StudentsManagementService.Student))]
     public partial class Entity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -291,8 +326,224 @@ namespace StudentsManagementSystem.StudentsManagementService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="AggregateRoot", Namespace="http://schemas.datacontract.org/2004/07/WCF.Shared")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StudentsManagementSystem.StudentsManagementService.Course))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StudentsManagementSystem.StudentsManagementService.Lecturer))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(StudentsManagementSystem.StudentsManagementService.StudentDetailsDto))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(StudentsManagementSystem.StudentsManagementService.Student))]
     public partial class AggregateRoot : StudentsManagementSystem.StudentsManagementService.Entity {
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Course", Namespace="http://schemas.datacontract.org/2004/07/WCF.Domain.CourseManagement")]
+    [System.SerializableAttribute()]
+    public partial class Course : StudentsManagementSystem.StudentsManagementService.AggregateRoot {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StudentsManagementSystem.StudentsManagementService.Lecturer LecturerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StudentsManagementSystem.StudentsManagementService.Student[] StudentsField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public StudentsManagementSystem.StudentsManagementService.Lecturer Lecturer {
+            get {
+                return this.LecturerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LecturerField, value) != true)) {
+                    this.LecturerField = value;
+                    this.RaisePropertyChanged("Lecturer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public StudentsManagementSystem.StudentsManagementService.Student[] Students {
+            get {
+                return this.StudentsField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StudentsField, value) != true)) {
+                    this.StudentsField = value;
+                    this.RaisePropertyChanged("Students");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Lecturer", Namespace="http://schemas.datacontract.org/2004/07/WCF.Domain.LecturerManagement")]
+    [System.SerializableAttribute()]
+    public partial class Lecturer : StudentsManagementSystem.StudentsManagementService.AggregateRoot {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime BirthDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private StudentsManagementSystem.StudentsManagementService.Course[] CoursesField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime BirthDate {
+            get {
+                return this.BirthDateField;
+            }
+            set {
+                if ((this.BirthDateField.Equals(value) != true)) {
+                    this.BirthDateField = value;
+                    this.RaisePropertyChanged("BirthDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public StudentsManagementSystem.StudentsManagementService.Course[] Courses {
+            get {
+                return this.CoursesField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CoursesField, value) != true)) {
+                    this.CoursesField = value;
+                    this.RaisePropertyChanged("Courses");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StudentDetailsDto", Namespace="http://schemas.datacontract.org/2004/07/WCF.Domain.StudentsManagement.ReadModels")]
+    [System.SerializableAttribute()]
+    public partial class StudentDetailsDto : StudentsManagementSystem.StudentsManagementService.AggregateRoot {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.DateTime BirthDateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double GPIField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StudentIdField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime BirthDate {
+            get {
+                return this.BirthDateField;
+            }
+            set {
+                if ((this.BirthDateField.Equals(value) != true)) {
+                    this.BirthDateField = value;
+                    this.RaisePropertyChanged("BirthDate");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double GPI {
+            get {
+                return this.GPIField;
+            }
+            set {
+                if ((this.GPIField.Equals(value) != true)) {
+                    this.GPIField = value;
+                    this.RaisePropertyChanged("GPI");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int StudentId {
+            get {
+                return this.StudentIdField;
+            }
+            set {
+                if ((this.StudentIdField.Equals(value) != true)) {
+                    this.StudentIdField = value;
+                    this.RaisePropertyChanged("StudentId");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -310,6 +561,9 @@ namespace StudentsManagementSystem.StudentsManagementService {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double GpiField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -349,6 +603,19 @@ namespace StudentsManagementSystem.StudentsManagementService {
                 if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
                     this.FirstNameField = value;
                     this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Gpi {
+            get {
+                return this.GpiField;
+            }
+            set {
+                if ((this.GpiField.Equals(value) != true)) {
+                    this.GpiField = value;
+                    this.RaisePropertyChanged("Gpi");
                 }
             }
         }
@@ -435,15 +702,107 @@ namespace StudentsManagementSystem.StudentsManagementService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="StudentDetailsQuery", Namespace="http://schemas.datacontract.org/2004/07/StudentsManagementService.Query.StudentQu" +
+        "eries")]
+    [System.SerializableAttribute()]
+    public partial class StudentDetailsQuery : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CourseListQuery", Namespace="http://schemas.datacontract.org/2004/07/StudentsManagementService.Query.CourseQue" +
+        "ries")]
+    [System.SerializableAttribute()]
+    public partial class CourseListQuery : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="StudentsManagementService.IExecutorService")]
     public interface IExecutorService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExecutorService/CreateStudent", ReplyAction="http://tempuri.org/IExecutorService/CreateStudentResponse")]
-        bool CreateStudent(StudentsManagementSystem.StudentsManagementService.CreateStudentCommand command);
+        string CreateStudent(StudentsManagementSystem.StudentsManagementService.CreateStudentCommand command);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExecutorService/CreateStudent", ReplyAction="http://tempuri.org/IExecutorService/CreateStudentResponse")]
-        System.Threading.Tasks.Task<bool> CreateStudentAsync(StudentsManagementSystem.StudentsManagementService.CreateStudentCommand command);
+        System.Threading.Tasks.Task<string> CreateStudentAsync(StudentsManagementSystem.StudentsManagementService.CreateStudentCommand command);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExecutorService/ReadStudent", ReplyAction="http://tempuri.org/IExecutorService/ReadStudentResponse")]
         StudentsManagementSystem.StudentsManagementService.Student[] ReadStudent(StudentsManagementSystem.StudentsManagementService.StudentListQuery query);
@@ -452,16 +811,34 @@ namespace StudentsManagementSystem.StudentsManagementService {
         System.Threading.Tasks.Task<StudentsManagementSystem.StudentsManagementService.Student[]> ReadStudentAsync(StudentsManagementSystem.StudentsManagementService.StudentListQuery query);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExecutorService/UpdateStudent", ReplyAction="http://tempuri.org/IExecutorService/UpdateStudentResponse")]
-        bool UpdateStudent(StudentsManagementSystem.StudentsManagementService.UpdateStudentCommand command);
+        string UpdateStudent(StudentsManagementSystem.StudentsManagementService.UpdateStudentCommand command);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExecutorService/UpdateStudent", ReplyAction="http://tempuri.org/IExecutorService/UpdateStudentResponse")]
-        System.Threading.Tasks.Task<bool> UpdateStudentAsync(StudentsManagementSystem.StudentsManagementService.UpdateStudentCommand command);
+        System.Threading.Tasks.Task<string> UpdateStudentAsync(StudentsManagementSystem.StudentsManagementService.UpdateStudentCommand command);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExecutorService/DeleteStudent", ReplyAction="http://tempuri.org/IExecutorService/DeleteStudentResponse")]
-        bool DeleteStudent(StudentsManagementSystem.StudentsManagementService.DeleteStudentCommand command);
+        string DeleteStudent(StudentsManagementSystem.StudentsManagementService.DeleteStudentCommand command);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExecutorService/DeleteStudent", ReplyAction="http://tempuri.org/IExecutorService/DeleteStudentResponse")]
-        System.Threading.Tasks.Task<bool> DeleteStudentAsync(StudentsManagementSystem.StudentsManagementService.DeleteStudentCommand command);
+        System.Threading.Tasks.Task<string> DeleteStudentAsync(StudentsManagementSystem.StudentsManagementService.DeleteStudentCommand command);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExecutorService/StudentDetails", ReplyAction="http://tempuri.org/IExecutorService/StudentDetailsResponse")]
+        StudentsManagementSystem.StudentsManagementService.StudentDetailsDto StudentDetails(StudentsManagementSystem.StudentsManagementService.StudentDetailsQuery query);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExecutorService/StudentDetails", ReplyAction="http://tempuri.org/IExecutorService/StudentDetailsResponse")]
+        System.Threading.Tasks.Task<StudentsManagementSystem.StudentsManagementService.StudentDetailsDto> StudentDetailsAsync(StudentsManagementSystem.StudentsManagementService.StudentDetailsQuery query);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExecutorService/ReadCourses", ReplyAction="http://tempuri.org/IExecutorService/ReadCoursesResponse")]
+        StudentsManagementSystem.StudentsManagementService.Course[] ReadCourses(StudentsManagementSystem.StudentsManagementService.CourseListQuery query);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExecutorService/ReadCourses", ReplyAction="http://tempuri.org/IExecutorService/ReadCoursesResponse")]
+        System.Threading.Tasks.Task<StudentsManagementSystem.StudentsManagementService.Course[]> ReadCoursesAsync(StudentsManagementSystem.StudentsManagementService.CourseListQuery query);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExecutorService/GetCourseByStudentId", ReplyAction="http://tempuri.org/IExecutorService/GetCourseByStudentIdResponse")]
+        StudentsManagementSystem.StudentsManagementService.Course[] GetCourseByStudentId(int Id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IExecutorService/GetCourseByStudentId", ReplyAction="http://tempuri.org/IExecutorService/GetCourseByStudentIdResponse")]
+        System.Threading.Tasks.Task<StudentsManagementSystem.StudentsManagementService.Course[]> GetCourseByStudentIdAsync(int Id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -491,11 +868,11 @@ namespace StudentsManagementSystem.StudentsManagementService {
                 base(binding, remoteAddress) {
         }
         
-        public bool CreateStudent(StudentsManagementSystem.StudentsManagementService.CreateStudentCommand command) {
+        public string CreateStudent(StudentsManagementSystem.StudentsManagementService.CreateStudentCommand command) {
             return base.Channel.CreateStudent(command);
         }
         
-        public System.Threading.Tasks.Task<bool> CreateStudentAsync(StudentsManagementSystem.StudentsManagementService.CreateStudentCommand command) {
+        public System.Threading.Tasks.Task<string> CreateStudentAsync(StudentsManagementSystem.StudentsManagementService.CreateStudentCommand command) {
             return base.Channel.CreateStudentAsync(command);
         }
         
@@ -507,20 +884,44 @@ namespace StudentsManagementSystem.StudentsManagementService {
             return base.Channel.ReadStudentAsync(query);
         }
         
-        public bool UpdateStudent(StudentsManagementSystem.StudentsManagementService.UpdateStudentCommand command) {
+        public string UpdateStudent(StudentsManagementSystem.StudentsManagementService.UpdateStudentCommand command) {
             return base.Channel.UpdateStudent(command);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateStudentAsync(StudentsManagementSystem.StudentsManagementService.UpdateStudentCommand command) {
+        public System.Threading.Tasks.Task<string> UpdateStudentAsync(StudentsManagementSystem.StudentsManagementService.UpdateStudentCommand command) {
             return base.Channel.UpdateStudentAsync(command);
         }
         
-        public bool DeleteStudent(StudentsManagementSystem.StudentsManagementService.DeleteStudentCommand command) {
+        public string DeleteStudent(StudentsManagementSystem.StudentsManagementService.DeleteStudentCommand command) {
             return base.Channel.DeleteStudent(command);
         }
         
-        public System.Threading.Tasks.Task<bool> DeleteStudentAsync(StudentsManagementSystem.StudentsManagementService.DeleteStudentCommand command) {
+        public System.Threading.Tasks.Task<string> DeleteStudentAsync(StudentsManagementSystem.StudentsManagementService.DeleteStudentCommand command) {
             return base.Channel.DeleteStudentAsync(command);
+        }
+        
+        public StudentsManagementSystem.StudentsManagementService.StudentDetailsDto StudentDetails(StudentsManagementSystem.StudentsManagementService.StudentDetailsQuery query) {
+            return base.Channel.StudentDetails(query);
+        }
+        
+        public System.Threading.Tasks.Task<StudentsManagementSystem.StudentsManagementService.StudentDetailsDto> StudentDetailsAsync(StudentsManagementSystem.StudentsManagementService.StudentDetailsQuery query) {
+            return base.Channel.StudentDetailsAsync(query);
+        }
+        
+        public StudentsManagementSystem.StudentsManagementService.Course[] ReadCourses(StudentsManagementSystem.StudentsManagementService.CourseListQuery query) {
+            return base.Channel.ReadCourses(query);
+        }
+        
+        public System.Threading.Tasks.Task<StudentsManagementSystem.StudentsManagementService.Course[]> ReadCoursesAsync(StudentsManagementSystem.StudentsManagementService.CourseListQuery query) {
+            return base.Channel.ReadCoursesAsync(query);
+        }
+        
+        public StudentsManagementSystem.StudentsManagementService.Course[] GetCourseByStudentId(int Id) {
+            return base.Channel.GetCourseByStudentId(Id);
+        }
+        
+        public System.Threading.Tasks.Task<StudentsManagementSystem.StudentsManagementService.Course[]> GetCourseByStudentIdAsync(int Id) {
+            return base.Channel.GetCourseByStudentIdAsync(Id);
         }
     }
 }

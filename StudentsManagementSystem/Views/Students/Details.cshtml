@@ -1,0 +1,50 @@
+﻿@model StudentsManagementSystem.Models.Students.StudentModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.FirstName @Model.LastName</h2>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">სურათი</th>
+            <th scope="col">სახელი</th>
+            <th scope="col">გვარი</th>
+            <th scope="col">დაბადების თარიღი</th>
+            <th scope="col">Gpi</th>
+            @*<th scope="col">კურსები და ლექტორი</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row"><img src="https://lh3.googleusercontent.com/proxy/5M8jCx-NqfR2o0TW5Bp7waGnEHSDUREAHnZ_TVy0KMZdJcYCY5GSWUfHQSM3peGYL0qzvSjxdLzQajZPZlSPbecupOx1TrZb-LydZN9zH39W7KJhHEWunO8VG13cHvJuf6b3cgPP"></th>
+            <th scope="row">@Model.FirstName</th>
+            <td scope="row">@Model.LastName</td>
+            <td scope="row">@Model.BirthDate</td>
+            <td scope="row">@Model.Gpi</td>
+            @*@foreach (var course in Model.CourseModel)
+                {
+                    <td scope="row">@course.CourseName</td>
+                    <td scope="row">@course.LecturerName</td>
+                }*@
+        </tr>
+    </tbody>
+</table>
+
+<h2>ცხრილი</h2>
+<table class="table table-dark">
+    <tbody>
+        <tr>
+            @foreach (var course in Model.CourseModel)
+            {
+                <td scope="row">@course.CourseName</td>
+            }
+        </tr>
+    </tbody>
+</table>
+<p>
+    @Html.ActionLink("რედაქტირება", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("სიაში დაბრუნება", "List")
+</p>

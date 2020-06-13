@@ -1,0 +1,41 @@
+﻿@model IEnumerable<StudentsManagementSystem.Models.Students.StudentModel>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List</h2>
+
+<p>
+    @Html.ActionLink("სტუდენტის რეგისტრაცია", "Create", "Students")
+</p>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">სურათი</th>
+            <th scope="col">სახელი</th>
+            <th scope="col">გვარი</th>
+            <th scope="col">დაბადების თარიღი</th>
+            <th scope="col">Gpi</th>
+            <th scope="col">ვრცლად</th>
+            <th scope="col">რედაქტირება</th>
+            <th scope="col">წაშლა</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var student in Model)
+        {
+            <tr>
+                <th scope="row"><img src="https://lh3.googleusercontent.com/proxy/5M8jCx-NqfR2o0TW5Bp7waGnEHSDUREAHnZ_TVy0KMZdJcYCY5GSWUfHQSM3peGYL0qzvSjxdLzQajZPZlSPbecupOx1TrZb-LydZN9zH39W7KJhHEWunO8VG13cHvJuf6b3cgPP"></th>
+                <th scope="row">@student.FirstName</th>
+                <td scope="row">@student.LastName</td>
+                <td scope="row">@student.BirthDate</td>
+                <td scope="row">@student.Gpi</td>
+                <td scope="row"><a href="@Url.Action("Details","Students", new { Id = student.Id})">ვრცლად</a></td>
+                <td scope="row"><a href="@Url.Action("Edit","Students", new { Id = student.Id})">რედაქტირება</a></td>
+                <td scope="row"><a href="@Url.Action("Delete","Students", new { Id = student.Id})">წაშლა</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
